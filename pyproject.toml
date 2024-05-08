@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "pymaybe"
+version = "0.1.0"
+description = "A functional python framework"
+authors = ["Kevin Blaesing <kevin.blaesing@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11, <4.0"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=8.0"
+pytest-cov = ">=5.0.0"
+pytest-watcher = ">=0.4" 
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+omit = [
+    "*/tests/*",
+    "*/test/*",
+    "*/__init__.py"
+    ]
