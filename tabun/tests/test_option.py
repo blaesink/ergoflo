@@ -1,6 +1,6 @@
 import pytest
-from pymaybe.option import Some, Nothing
-from pymaybe.result import Err, Ok
+from tabun.option import Some, Nothing
+from tabun.result import Err, Ok
 
 
 def test_get_some_val():

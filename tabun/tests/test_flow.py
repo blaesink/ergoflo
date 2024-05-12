@@ -1,5 +1,5 @@
-from pymaybe.flow import flow
-from pymaybe import Ok, Result, Err
+from tabun.flow import flow
+from tabun import Ok, Result, Err
 
 
 def _add_two(x: int) -> int:

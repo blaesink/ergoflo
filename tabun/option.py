@@ -5,7 +5,7 @@ and without having to do endless checks.
 """
 
 from typing import Type, TypeVar, Self, Callable
-import pymaybe.result as result
+import tabun.result as result
 
 T = TypeVar("T")
 U = TypeVar("U")
