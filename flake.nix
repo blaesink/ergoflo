@@ -22,13 +22,21 @@
       perSystem = { config, self', inputs', pkgs, system, ... }: 
         let
           python' = pkgs.python312;
-          inherit (poetry2nix.lib.mkPoetry2Nix { inherit pkgs; }) mkPoetryApplication;
+          inherit (poetry2nix.lib.mkPoetry2Nix { inherit pkgs; }) 
+            mkPoetryApplication 
+            defaultPoetryOverrides;
+          pymaybeApp = mkPoetryApplication { 
+            projectDir = ./.;
+            python = python';
+            overrides = defaultPoetryOverrides.extend (self: super: {
+                pytest-watcher = super.poetry.overridePythonAttrs (old: {
+                  buildInputs = (old.buildInputs or [ ]) ++ [ super.poetry ];
+                });
+              });
+          };
         in
       {
-        packages.default = mkPoetryApplication { 
-          projectDir = ./.;
-          python = python';
-        };
+        packages.default = pymaybeApp;
 
         devenv.shells.default = {
           name = "pymaybe";

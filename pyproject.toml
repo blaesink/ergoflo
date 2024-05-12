@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pymaybe"
+name = "tabun"
 version = "0.1.0"
 description = "A functional python framework"
 authors = ["Kevin Blaesing <kevin.blaesing@gmail.com>"]
@@ -24,3 +24,9 @@ omit = [
     "*/test/*",
     "*/__init__.py"
     ]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tabun/tests",
+    "integration"
+]
