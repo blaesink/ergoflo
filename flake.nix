@@ -41,6 +41,11 @@
         devenv.shells.default = {
           name = "pymaybe";
 
+          scripts = {
+            pt.exec = "pytest --cov=tabun --cov-report=term-missing";
+            pw.exec = "pytest-watcher -- --cov=tabun --cov-report=term-missing";
+          };
+
           languages.python = {
             enable = true;
             package = python';
@@ -54,7 +59,7 @@
           env.PYTHONPATH = "$PYTHONPATH:.";
 
           # https://devenv.sh/reference/options/
-          packages = with pkgs; [ poetry pyright ruff-lsp ];
+          packages = with pkgs; [ poetry pyright ruff-lsp ruff ];
 
         };
 
