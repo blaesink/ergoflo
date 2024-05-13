@@ -25,7 +25,7 @@
           inherit (poetry2nix.lib.mkPoetry2Nix { inherit pkgs; }) 
             mkPoetryApplication 
             defaultPoetryOverrides;
-          pymaybeApp = mkPoetryApplication { 
+          ergofloApp = mkPoetryApplication { 
             projectDir = ./.;
             python = python';
             overrides = defaultPoetryOverrides.extend (self: super: {
@@ -36,14 +36,14 @@
           };
         in
       {
-        packages.default = pymaybeApp;
+        packages.default = ergofloApp;
 
         devenv.shells.default = {
-          name = "pymaybe";
+          name = "ergoflo";
 
           scripts = {
-            pt.exec = "pytest --cov=tabun --cov-report=term-missing";
-            pw.exec = "pytest-watcher -- --cov=tabun --cov-report=term-missing";
+            pt.exec = "pytest --cov=ergoflo --cov-report=term-missing";
+            pw.exec = "pytest-watcher -- --cov=ergoflo --cov-report=term-missing";
           };
 
           languages.python = {
@@ -59,7 +59,7 @@
           env.PYTHONPATH = "$PYTHONPATH:.";
 
           # https://devenv.sh/reference/options/
-          packages = with pkgs; [ poetry pyright ruff-lsp ruff ];
+          packages = with pkgs; [ poetry pyright ruff-lsp ruff twine ];
 
         };
 

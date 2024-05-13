@@ -1,6 +1,6 @@
 from contextlib import nullcontext
 import pytest
-from tabun.result import Ok, Err, Result
+from ergoflo.result import Ok, Err, Result
 
 
 def test_ok_val():

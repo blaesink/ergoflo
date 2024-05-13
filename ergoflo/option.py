@@ -5,7 +5,7 @@ and without having to do endless checks.
 """
 
 from typing import Type, TypeVar, Self, Callable
-import tabun.result as result
+import ergoflo.result as result
 
 T = TypeVar("T")
 U = TypeVar("U")

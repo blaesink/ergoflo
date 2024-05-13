@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "tabun"
+name = "ergoflo"
 version = "0.1.0"
 description = "A functional python framework"
 authors = ["Kevin Blaesing <kevin.blaesing@gmail.com>"]
@@ -27,6 +27,6 @@ omit = [
 
 [tool.pytest.ini_options]
 testpaths = [
-    "tabun/tests",
+    "ergoflo/tests",
     "integration"
 ]

@@ -1,6 +1,6 @@
 import pytest
-from tabun.option import Some, Nothing
-from tabun.result import Err, Ok
+from ergoflo.option import Some, Nothing
+from ergoflo.result import Err, Ok
 
 
 def test_get_some_val():
