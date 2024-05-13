@@ -11,6 +11,10 @@ def flow[T](*funcs: Callable[..., T]) -> Callable[..., T]:
     """Aka \"compose\".
     `flow` chains multiple functions together, where the output of one is the input to another.
 
+    You can also use `flow` as a "function builder". Since nothing is evaluated until called with an argument,
+    `flow`s can be made by building up a sequence of functions, then just calling flow(*funcs) to create the object and
+    then evaluated at a later time.
+
     `flow(f1, f2, f3)(x)` is the same as `f3(f2(f1(x)))`
 
     `flow` is useful for functions using `Maybe` and `Result` so that you can quickly make composable \
