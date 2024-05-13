@@ -69,7 +69,7 @@ class Err:
     def flatten(self) -> Self:
         return self
 
-    def unwrap(self) -> None:
+    def unwrap(self):
         raise self._type(self.args)
 
 

@@ -43,7 +43,7 @@
 
           scripts = {
             pt.exec = "pytest --cov=ergoflo --cov-report=term-missing";
-            pw.exec = "pytest-watcher -- --cov=ergoflo --cov-report=term-missing";
+            pw.exec = "pytest-watcher . -- --cov=ergoflo --cov-report=term-missing";
           };
 
           languages.python = {

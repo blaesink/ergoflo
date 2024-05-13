@@ -12,6 +12,8 @@ U = TypeVar("U")
 
 
 class Some[T]:
+    __match_args__ = ("v",)
+
     def __init__(self, val: T):
         self.val = val
 
