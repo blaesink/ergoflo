@@ -47,8 +47,8 @@ def checked[T](f: Callable[..., Unwrap[T]]) -> Callable:
     Functions that are marked `@checked` handle error propogation automatically. But you *must* use them with
     other `@checked` functions for the full effect!
 
-    Of note: a function that returns a `Result | Maybe` doens't need to be marked `@checked` if you don't expect
-    it to be used in a fallible way.
+    Of note: a function that returns a `Result | Maybe` doesn't need to be marked `@checked` if you don't expect
+    it to be used in a fallible way (e.g. you actually want to return the container).
     """
 
     def _checked(*args, **kwargs):
