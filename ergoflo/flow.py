@@ -58,9 +58,7 @@ def checked[T](f: Callable[..., Unwrap[T]]) -> Callable:
             match result:
                 case Ok() | Some():
                     return result
-                case Nothing():
-                    Nothing.unwrap()
-                case Err():
+                case Err() | Nothing():
                     result.unwrap()
         except Exception as e:
             raise e
