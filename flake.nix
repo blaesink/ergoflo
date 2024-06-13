@@ -12,7 +12,7 @@
     extra-substituters = "https://devenv.cachix.org";
   };
 
-  outputs = inputs@{ flake-parts, poetry2nix, ... }:
+  outputs = inputs@{ self, flake-parts, poetry2nix, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.devenv.flakeModule
@@ -26,7 +26,10 @@
             mkPoetryApplication 
             defaultPoetryOverrides;
           ergofloApp = mkPoetryApplication { 
-            projectDir = ./.;
+            checkPhase = ''
+              pytest .
+            '';
+            projectDir = self;
             python = python';
             overrides = defaultPoetryOverrides.extend (self: super: {
                 pytest-watcher = super.poetry.overridePythonAttrs (old: {
